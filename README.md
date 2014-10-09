@@ -15,7 +15,7 @@ If you wish to use my code in a library or other application and the GPL is unsu
 Requirements
 ------------
 
-This code is written for Python 3.2 and above, but developed with Python 3.4.
+This code is written for Python 3.2 and above, but developed with Python 3.4.  There is a reasonable chance it will also work with Python 2.7.
 
 The [Requests](http://docs.python-requests.org/en/latest/) module is required to run this code.
 
