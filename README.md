@@ -20,3 +20,9 @@ This code is written for Python 3.2 and above, but developed with Python 3.4.  T
 The [Requests](http://docs.python-requests.org/en/latest/) module is required to run this code.
 
 
+Project Status
+--------------
+
+Suspended until BTC Markets configures CloudFlare to stop using the browser integrity check on their API as that prevents this code from running.
+
+
