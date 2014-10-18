@@ -13,8 +13,19 @@ url = domain + uri
 skey = apikey_secret.encode("utf-8")
 pkey = apikey_public.encode("utf-8")
 
-ctstamp = int(time.time() * 1000)
+# Optional timestamping method, not recommended as ticker results may
+# be cached beyond the authentication window.
+#
+#urt = "/market/BTC/AUD/tick"
+#turl = domain + urt
+#rt = requests.get(turl, verify=True)
+#tstamp = r.json()["timestamp"]
+#ctstamp = tstamp * 1000
+
+tstamp = time.time()
+ctstamp = tstamp * 1000  # or int(tstamp * 1000) or round(tstamp * 1000)
 sctstamp = str(ctstamp)
+
 sbody = uri + "\n" + sctstamp + "\n"
 rbody = sbody.encode("utf-8")
 
