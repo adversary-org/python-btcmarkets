@@ -22,6 +22,15 @@ utime = time.asctime(time.gmtime(tstamp))
 offset = str(abs((datetime.datetime.now() - datetime.datetime.utcnow()) / 3600 * 3600))
 age = str(datetime.timedelta(seconds=abs(time.time() - tstamp))).split(':')
 
+if int(age[0]) == 0 and int(age[1]) == 0:
+    since = "{0} seconds ago.".format(age[2])
+elif int(age[0]) == 0 and int(age[1]) > 0:
+    since = "{0} minutes and {1} seconds ago.".format(age[1], age[2])
+elif int(age[0]) > 0 and int(age[1]) > 0:
+    since = "{0} hours, {1} minutes and {2} seconds ago.".format(age[0], age[1], age[2])
+else:
+    since = "{0} hours, {1} minutes and {2} seconds ago.".format(age[0], age[1], age[2])
+
 # This must be changed if TZ is at +1000, +1100, -1100 or -1000 UTC
 # and not in Australia (in the first two cases):
 if offset == "10:00:00":
@@ -31,6 +40,15 @@ elif offset == "11:00:00":
 else:
     localtz = "local time"
 
-p = "BTCMarkets | BTCAUD | Best bid: {0}, Best ask: {1}, Bid-Ask spread: {2}, last trade: {3} | valid at: {4} UTC | {5} {6} (+{7} UTC) | {8} hours, {9} minutes and {10} seconds ago.".format(bid, ask, spread, last, utime, ltime, localtz, offset, age[0], age[1], age[2])
+if len(offset) == 8:
+    # oset = "".join(offset[0:5].split(":"))  # correct format
+    oset = offset[0:5]  # easy to read format
+elif len(offset) == 7:
+    # oset = "".join(offset[0:4].split(":"))  # correct format
+    oset = offset[0:4]  # easy to read format
+else:
+    oset = offset
+
+p = "BTCMarkets | BTCAUD | Best bid: {0}, Best ask: {1}, Bid-Ask spread: {2}, last trade: {3} | valid at: {4} UTC | {5} {6} (+{7} UTC) | {8}".format(bid, ask, spread, last, utime, ltime, localtz, oset, since)
 
 print(p)
