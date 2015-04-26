@@ -23,13 +23,22 @@ offset = str(abs((datetime.datetime.now() - datetime.datetime.utcnow()) / 3600 *
 age = str(datetime.timedelta(seconds=abs(time.time() - tstamp))).split(':')
 
 if int(age[0]) == 0 and int(age[1]) == 0:
-    since = "{0} seconds ago.".format(age[2])
+    secs = str(float(age[2]))
+    since = "{0} seconds ago.".format(secs)
 elif int(age[0]) == 0 and int(age[1]) > 0:
-    since = "{0} minutes and {1} seconds ago.".format(age[1], age[2])
+    mins = str(int(age[1]))
+    secs = str(float(age[2]))
+    since = "{0} minutes and {1} seconds ago.".format(mins, secs)
 elif int(age[0]) > 0 and int(age[1]) > 0:
-    since = "{0} hours, {1} minutes and {2} seconds ago.".format(age[0], age[1], age[2])
+    hours = str(int(age[0]))
+    mins = str(int(age[1]))
+    secs = str(float(age[2]))
+    since = "{0} hours, {1} minutes and {2} seconds ago.".format(hours, mins, secs)
 else:
-    since = "{0} hours, {1} minutes and {2} seconds ago.".format(age[0], age[1], age[2])
+    hours = str(int(age[0]))
+    mins = str(int(age[1]))
+    secs = str(float(age[2]))
+    since = "{0} hours, {1} minutes and {2} seconds ago.".format(hours, mins, secs)
 
 # This must be changed if TZ is at +1000, +1100, -1100 or -1000 UTC
 # and not in Australia (in the first two cases):
