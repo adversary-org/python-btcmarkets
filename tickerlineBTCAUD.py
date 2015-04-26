@@ -49,6 +49,6 @@ elif len(offset) == 7:
 else:
     oset = offset
 
-p = "BTCMarkets | BTCAUD | Best bid: {0}, Best ask: {1}, Bid-Ask spread: {2}, last trade: {3} | valid at: {4} UTC | {5} {6} (+{7} UTC) | {8}".format(bid, ask, spread, last, utime, ltime, localtz, oset, since)
+p = "BTCMarkets BTCAUD | Best bid: {0}, Best ask: {1}, Bid-Ask spread: {2}, last trade: {3} | valid at: {4} UTC | {5} {6} (+{7} UTC) | {8}".format(bid, ask, spread, last, utime, ltime, localtz, oset, since)
 
 print(p)
