@@ -23,6 +23,7 @@ The [Requests](http://docs.python-requests.org/en/latest/) module is required to
 Project Status
 --------------
 
-Suspended until BTC Markets configures CloudFlare to stop using the browser integrity check on their API as that prevents this code from running.
+Anonymous connections (i.e. the tickers) work without any real issues.  API calls requiring authentication presently do not work as the current API expects POST requests to list variables in an explicit order, whereas Python does not assign an explicit order when constructing a POST URL from dict/JSON data.  This adversely affects the output of the digital signature on the authentication request and subsequently causes the authentication step to fail.
+
 
 
